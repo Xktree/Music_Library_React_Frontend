@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './DisplayMusic.css'
 
 class DisplayMusic extends Component {
     constructor(props) {

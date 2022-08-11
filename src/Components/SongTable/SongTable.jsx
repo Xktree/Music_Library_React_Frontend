@@ -1,5 +1,4 @@
 import React from 'react';
-import './SongTable.css'
 
 const SongTable = (props) => {
     return (
