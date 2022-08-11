@@ -16,3 +16,15 @@ class App extends Component {
   componentDidMount(){
     this.getSongs();
   }
+  
+  getSongs = async () => {
+    try {
+      let response = await axios.get('http://127.0.0.1:8000/music/');   
+      console.log(response.data);
+      this.setState({
+        songs: response.data
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
