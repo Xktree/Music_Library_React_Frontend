@@ -57,3 +57,26 @@ class App extends Component {
       console.log(err);
     }
   }
+
+  searchSong = async (search) => {
+    let songs = this.state.songs;
+    let foundSongs = this.searchedSong(songs, search.query);
+    if (foundSongs === undefined){
+      this.getSongs();
+    } else {
+      Promise.all(foundSongs.map(async (song, i) => {
+        let response;
+        try {
+          response = await axios.get('http://127.0.0.1:8000/music/' + song[i].id + '/');
+          return response.data
+        } catch (err) {
+          console.log(err);
+        }
+      })).then(response => {
+        this.setState({
+          songs: response
+        })
+        console.log(response);
+      })
+    }
+  }
