@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount(){
     this.getSongs();
   }
-  
+
   getSongs = async () => {
     try {
       let response = await axios.get('http://127.0.0.1:8000/music/');   
@@ -28,3 +28,14 @@ class App extends Component {
       console.log(err);
     }
   }
+
+  deleteSong = async (id) => {
+    try {
+      await axios.delete('http://127.0.0.1:8000/music/' + id + '/');   
+      this.getSongs();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  
