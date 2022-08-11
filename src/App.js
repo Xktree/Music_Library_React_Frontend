@@ -147,3 +147,36 @@ class App extends Component {
       this.getSongs();
     }
   } 
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <br/>
+        <div className="row">
+          <div className="col-8"/>
+          <div className="col-4">
+            <SearchBar searchSong = {this.searchSong} />
+            <br/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-2"/>
+          <div className="col-8">
+            <SongTable {...this.state} deleteSong = {this.deleteSong}/>
+            <br/>
+          </div>
+          <div className="col-2"/>
+        </div>
+        <div className="row">
+          <div className="col-4"/>
+          <div className="col-4">
+            <SongCreator addSong = {this.addSong} />
+            <br/>
+          </div>
+          <div className="col-4"/>
+        </div>
+      </div>
+    );
+  }
+}
+export default App;
