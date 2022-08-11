@@ -38,4 +38,22 @@ class App extends Component {
     }
   }
 
-  
+  addSong = async (newSong) => {
+    let id = this.state.songs.length
+    let song = {
+      id: id,
+      title: newSong.title,
+      artist: newSong.artist,
+      album: newSong.album,
+      genre: newSong.genre,
+      release_date: newSong.release_date
+    }
+    try {
+      await axios.post('http://127.0.0.1:8000/music/', song);
+      this.setState({
+        songs: [...this.state.songs, song],
+      }, () => console.log(this.state.songs));
+    } catch (err) {
+      console.log(err);
+    }
+  }
