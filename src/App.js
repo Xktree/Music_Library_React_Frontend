@@ -1,5 +1,9 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import axios from 'axios';
 import './App.css';
+import SearchBar from './Components/SearchBar/SearchBar.jsx';
+import DisplayMusic from './Components/DisplayMusic/DisplayMusic.jsx';
+import SongTable from './Components/SongTable/SongTable.jsx';
 
 function App() {
   return (

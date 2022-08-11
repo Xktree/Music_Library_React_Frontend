@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './SongCreator.css'
+import './DisplayMusic.css'
 
-class SongCreator extends Component {
+class DisplayMusic extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -53,4 +53,4 @@ class SongCreator extends Component {
     }
 }
 
-export default SongCreator;
+export default DisplayMusic;
