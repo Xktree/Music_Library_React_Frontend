@@ -80,3 +80,70 @@ class App extends Component {
       })
     }
   }
+
+  searchedSong = (songs, query) => {
+    let title = songs.filter(song => song.title == query).map(({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }) => ({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }));
+    let artist = songs.filter(song => song.artist == query).map(({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }) => ({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }));
+    let album = songs.filter(song => song.album == query).map(({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }) => ({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }));
+    let genre = songs.filter(song => song.genre == query).map(({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }) => ({
+        id,
+        title,
+        album,
+        genre,
+        release_date
+      }));
+    let foundSongs = [title, artist, album, genre]
+    let i = 0;
+    let sortedSongs; 
+    while (i < foundSongs.length-1) {
+      sortedSongs = foundSongs.filter(song => song == foundSongs[i])
+      i += 1;   
+    }
+    if (sortedSongs[0].length !== 0){
+      return sortedSongs;
+    } else {
+      this.getSongs();
+    }
+  } 
